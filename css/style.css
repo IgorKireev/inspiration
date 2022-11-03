@@ -1,0 +1,559 @@
+*{
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+*,*:before,*:after{
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+:focus,:active{outline: none;}
+a:focus,a:active{outline: none;}
+
+nav,footer,header,aside{display: block;}
+
+html,body{
+  height: 100%;
+  width: 100%;
+  font-size: 100%;
+  line-height: 1;
+  font-size: 14px;
+  -ms-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+input,button,textarea{font-family:inherit;}
+
+input::-ms-clear{display: none;}
+button{cursor: pointer;}
+button::-moz-focus-inner {padding:0;border:0;}
+a, a:visited{text-decoration: none;}
+a:hover{text-decoration: none;}
+ul li{list-style: none;}
+img{vertical-align: top;}
+
+h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight: 400;}
+
+
+/* lato-regular - latin */
+@font-face {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 400;
+  src: local(''),
+       url('../fonts/lato-v23-latin-regular.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+       url('../fonts/lato-v23-latin-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+/* lato-700 - latin */
+@font-face {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 700;
+  src: local(''),
+       url('../fonts/lato-v23-latin-700.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+       url('../fonts/lato-v23-latin-700.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+/* lato-900 - latin */
+@font-face {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 900;
+  src: local(''),
+       url('../fonts/lato-v23-latin-900.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+       url('../fonts/lato-v23-latin-900.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+
+html{
+  box-sizing: border-box;
+}
+*, *::before, *::after{
+  box-sizing: inherit;
+}
+
+body{
+  font-family: 'Lato';
+  font-style: normal;
+  font-size: 16px;
+  line-height: 1.2;
+  font-weight: normal;
+  color: #102746;
+}
+img{
+  max-width: 100%;
+  height: auto; /*чтобы сжималась пропорционально*/
+}
+/*margin: 0 auto - выравнивание блока по центру */
+.wrapper{
+  max-width: 1060px;
+  margin: 0 auto;
+}
+.wrapper-full{
+  max-width: 1262px;
+  margin: 0 auto;
+}
+.section-title{
+  font-weight: 500;
+  font-size: 35px;
+  line-height: 42px;
+  position: relative;
+  padding-bottom: 10px;
+}
+/*content: '' - обязательно для псевдоэлемента */
+.section-title:after{
+  display: block;
+  content: '';
+  width: 253px;
+  height: 3px;
+  background-color: #006DFE;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+/*header styles start*/
+/*top: 0 - зафиксируем хэдэр к верхней части экрана*/
+.header{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  transition: .2s linear; /*для плавного перехода к бэкграунду при скроле*/
+  padding-bottom: 20px;/* для красоты отсуп у бэка при скроле*/
+  z-index: 100; /*чтобы хедер наклдывался точно на все*/
+}
+.header_active{
+  background: #0E1D28;
+}
+/* flex-wrap: wrap - чтоб элементы списка не наезжали друг на друга*/
+/*align-items: flex-end - выровнять по нижней части блока*/
+/*justify-content: space-between - выровнять по краям блока*/
+.header__wrapper{
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  padding-top: 56px;
+}
+.header__list{
+  display: flex;
+  flex-wrap: wrap;
+}
+.header__item{
+  margin-right: 82px;
+}
+.header__item:last-child{
+  margin-right: 0;
+}
+.header__link{
+  font-size: 18px;
+  line-height: 24px;
+  color: white;
+  text-decoration: none;
+}
+/*opacity: .75 - эффект наведения на меню*/
+.header__link:hover, .header__link:focus, .header__link:active{
+  opacity: .75;
+}
+/*header styles end*/
+
+/*intro styles start*/
+
+.intro{
+  min-height: 100vh;
+  background: url(../img/intro-bg.jpg) no-repeat center;
+  background-size: cover;
+  padding-top: 263px;
+  padding-bottom: 223px;
+  
+}
+.intro__title{
+  max-width: 619px;
+  font-weight: 500;
+  font-size: 50px;
+  line-height: 60px;
+  color: white;
+  margin-bottom: 22px;
+}
+.intro__subtitle{
+  max-width: 546px;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  color:white;
+  margin-bottom: 59px;
+}
+.search-form__info{
+  display: flex;
+  flex-wrap: wrap;
+}
+/*transparent - прозрачный*/
+.search-form__field{
+  width: 297px;
+  background-color: transparent;
+  background: url(../img/svg/circle-iconl.svg) no-repeat left 7px;
+  background-size: 17px;
+  border: 0;
+  border-bottom: 2px solid #BFC0C5;
+  margin-right: 60px;
+  padding-left: 43px;
+  padding-bottom: 22px;
+  font-weight: 500;
+  font-size: 18px;
+  color: white;
+}
+
+.search-form__field::placeholder{
+  font-weight: 500;
+  font-size: 18px;
+  color: white;
+}
+.search-form__submit{
+  padding: 15px 39px;
+  text-transform: uppercase;
+  font-weight: 500;
+  font-size: 24px;
+  color: white;
+  background-color: #1B7DFF;
+  border: 0;
+}
+/*opacity: .75 - эффект наведения на меню*/
+.search-form__submit:hover, .search-form__submit:focus, .search-form__submit:active{
+  background:  #0e66da;
+}
+/*intror styles end*/
+
+/*benefits styles start*/
+.benefits__wrap{
+  max-width: 1262px;
+  background-color: #fff;
+  margin: 0 auto;
+  box-shadow: 0px 2px 20px; rgba(21, 24, 36, 0.15993);
+  position: relative;
+}
+/*position: relative - нужно для класса родителя для position: absolute */
+/*transform: translateY(-100%) - сдвиг вверх заголовка на собственную высоту*/
+.benefits__title{
+    width: 100%;
+    font-weight: 500;
+    font-size: 35px;
+    line-height: 42px;
+    padding: 93px 100px 88px 100px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translateY(-100%);
+    background-color: #fff;
+}
+
+/*grid-column: span 1 - каждая карточка занимает по одной колонке*/
+.benefits__cards{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-column-gap: 55px;
+  padding: 0 100px;
+}
+.benefits__card{
+  grid-column: span 1;
+  margin-bottom: 112px;
+}
+.benefits__card-pic{
+  max-width: 66px;
+  margin-bottom: 37px;
+  
+}
+/*display: block - у свдж по умолчанию небольшой отступ снизу и это убирает его*/
+.benefits__card-miniature{
+  display: block;
+}
+.benefits__card-title{
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 24px;
+  margin-bottom: 26px;
+}
+.benefits__card-desription{
+  font-size: 16px;
+  line-height: 24px;
+  margin-bottom: 39px;
+}
+.benefits__card-more{
+    display: inline-block;
+    padding-right: 59px;
+    font-size: 16px;
+    line-height: 24px;
+    color: #006DFE;
+    text-decoration: none;
+    background: url(../img/svg/arrow-icon.svg) no-repeat 95% center;
+    transition: .2s all;
+}
+.benefits__card-more:hover, .benefits__card-more:focus{
+  background: url(../img/svg/arrow-icon.svg) no-repeat right center;
+}
+/*benefits styles end*/
+
+/*places styles start*/
+.places{
+  margin-bottom: 131px; 
+}
+.places__title{
+  margin-right: 15px;
+}
+.places__caption{
+  margin-top: 131px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 36px; 
+}
+.places__view-all{
+  padding-right: 59px;
+  font-size: 16px;
+  color: #006DFE;
+  background: url(../img/svg/arrow-icon.svg) no-repeat right center;
+}
+.places__view-all:hover, .places__view-all:focus{
+  opacity: .65;
+}
+.places__cards{
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-gap: 10px;/*расстояние между гридами/картинками*/
+}
+.places__card_size_lg{
+  grid-column: span 3; /*большие картинки занимают 3 колонки*/
+}
+.places__card_size_sm{
+  grid-column: span 2; /*большие картинки занимают 3 колонки*/
+}
+.places__card{
+  position: relative;
+  overflow: hidden; /* когда наводимся на картинку и она увелич при этом то края не затемнены и мы их обрезаем*/
+}
+.places__card::after{
+  display: block;
+  content: '';
+  width: 100%;
+  height: 100%;
+  background-color: rgba(21, 24, 36, 0.4);
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;/*поверх картинки накладывается тень*/
+}
+.places__card:hover .places__card-pic{
+  transform: scale(1.05);/*при наведении курсором на картинку она увелич*/
+}
+.places__card-title{
+  font-size: 50px;
+  line-height: 60px;
+  color: white;
+  position: absolute;
+  bottom: 27px;
+  left: 29px;
+  z-index: 3;/*поверх затемнения накладывается*/
+}
+.places__card-pic{
+  width: 100%;
+  object-fit: cover; /*показывает как изобр будет масташбироваться внутри контейнера || это надо для того чтобы при сужении всегда оствалось центральная часть картинки*/
+}
+.places__card-pic_size_lg{
+  height: 354px;
+}
+.places__card-pic_size_sm{
+  height: 283px;
+}
+.places__card-link{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 4;/*наложено поверх всего*/
+}
+/*places styles end*/
+
+/*tours styles start*/
+
+.tours{
+  margin-bottom: 139px;
+}
+.tours__tour{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 0 108px;  
+  align-items: center;
+  margin-bottom: 77px;
+}
+.tour__info-1{
+  padding-right: 47px;
+}
+.tour__info-2{
+  padding-left: 47px;
+}
+.tour__title{
+  font-weight: 500;
+  font-size: 30px;
+  line-height: 40px;
+  margin-bottom: 85px;
+}
+.tour__description{
+  font-size: 16px;
+  line-height: 24px;
+  margin-bottom: 58px;
+  min-width: 519px;
+  max-height: 72px;
+}
+.tour__more{
+  padding-right: 59px;
+  font-size: 16px;
+  color: #006DFE;
+  background: url(../img/svg/arrow-icon.svg) no-repeat right center;
+}
+.tour__more:hover, .tour__more:focus{
+  opacity: .65;
+}
+.tour__miniature{
+  width: 100%;
+  object-fit: cover;
+  min-height: 354px;
+  min-width: 597px; 
+}
+/*tours styles end*/
+
+/*top style start*/
+
+.top{
+  margin-bottom: 86px;
+}
+.top__title{
+  margin-bottom: 54px;
+}
+.top__cards{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 57px;
+}
+.top__card{
+  display: flex;
+  flex-direction: column;/*сделано для того чтобы если в одной из карточек больше текста чтоб кнопка сии мор не уходила на уровень ниже по сравнению с остальными*/
+}
+.top__card-pic{
+  position: relative;
+  margin-bottom: 45px;
+}
+.top__card-stats{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end; /*помещаем все содержимое в правый конецы*/
+  align-items: center;
+  position: absolute;
+  left: 0;
+  bottom:  0;
+  width: 100%;
+  background: rgba(21, 24, 36, 0.6);
+  padding: 16px 25px; /*увеличение блока затемнения*/
+}
+.top__card-title{
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 24px;
+  color: white;
+  margin: 0 auto 0 0; /*заголовек помещаем из правого конца в левый конец*/
+}
+.top__card-likes{
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  color: white;
+  padding-right: 20px;
+  background: url(../img/svg/like-icon.svg) no-repeat right;
+  margin-right: 14px;
+}
+.top__card-comments{
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  color: white;
+  padding-right: 23px;
+  background: url(../img/svg/comment-icon.svg) no-repeat right;
+}
+.top__card-desсription{
+  font-size: 16px;
+  line-height: 24px;
+  margin-bottom: 31px;
+}
+.top__card-more{
+  width: 118px; 
+  padding: 12px 19px;
+  background: #006DFE;
+  text-decoration: none;
+  color: white;
+  font-size: 16px;
+  margin: auto 0 0 0; /*автоматически прибивается к концу контейнера*/
+}
+.top__card-more:hover, .top__card-more:focus, .top__card-more:active{
+  background:  #0e66da;
+}
+/*top style end*/
+
+/*videos styles start*/
+
+
+.videos{
+  width: 100%;
+}
+.videos__wrapper{
+  max-width: 1440px;
+  position: relative;
+  margin: 0 auto; /*размещение по центру*/
+}
+.video__item{
+  padding-top: 52.25%; /*отношение 16 на 9*/
+}
+.video__element{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/*videos styles end*/
+
+/*footer styles start*/
+
+.footer{
+  background: #0E1D28;
+  padding: 119px 0;
+}
+.footer__item{
+  display: flex;
+  flex-wrap: wrap;
+}
+.footer__logo{
+  width: 50%;
+}
+.footer__nav{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 50%;
+}
+.footer__menu-title{
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 24px;
+  color: white;
+}
+.footer__menu-link{
+  font-size: 16px;
+  line-height: 24px;
+  color: white;
+  text-decoration: none;
+}
+.footer__menu-link:hover, .footer__menu-link:focus,.footer__menu-link:active{
+  opacity: .75;
+}
+/*footer styles end*/
